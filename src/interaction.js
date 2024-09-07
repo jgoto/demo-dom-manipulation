@@ -4,31 +4,38 @@ class JsOrderForm{
         this.createForm(0)
     }
 
+    createFormElement(type, name){
+        const newField = document.createElement("div");
+        const fieldLabel = document.createElement("label");
+        fieldLabel.innerText = `${name}`;
+        const fieldInput = document.createElement("input");
+        fieldInput.type = type;
+        newField.appendChild(fieldLabel);
+        newField.appendChild(fieldInput);
+        return newField;
+    }
+
+    createFormButtons(){
+        const btnGroup = document.createElement("div");
+        const addBtn= document.createElement("button");
+        addBtn.innerText="Add";
+        addBtn.type="button";
+        btnGroup.appendChild(addBtn);
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText="Delete";
+        deleteBtn.type="button";
+        btnGroup.appendChild(deleteBtn);
+        return btnGroup;
+    }
+
     createForm(index){
-        const nameField = document.createElement("div");
-        const nameLabel = document.createElement("label");
-        nameLabel.innerText=`Name ${index===0?"1" : index+1}:`;
-        nameField.appendChild(nameLabel);
-        const nameInput = document.createElement("input");
-        nameInput.type="text";
-        nameField.appendChild(nameInput);
-        this.formContainer.appendChild(nameField);
-        const emailField = document.createElement("div");
-        const emailLabel = document.createElement("label");
-        emailLabel.innerText=`Email ${index===0?"1" : index+1}:`;
-        emailField.appendChild(emailLabel);
-        const emailInput = document.createElement("input");
-        emailInput.type="email";
-        emailField.appendChild(emailInput);
-        this.formContainer.appendChild(emailField);
-        const numberTicketsField = document.createElement("div");
-        const numberTicketsLabel = document.createElement("label");
-        numberTicketsLabel.innerText=`Number of Tickets ${index===0?"1" : index+1}:`;
-        numberTicketsField.appendChild(numberTicketsLabel);
-        const numberTicketsInput = document.createElement("input");
-        numberTicketsInput.type="number";
-        numberTicketsField.appendChild(numberTicketsInput);
-        this.formContainer.appendChild(numberTicketsField);
+        const formLegend = document.createElement("legend");
+        formLegend.innerText = "New Form";
+        this.formContainer.appendChild(formLegend);
+        formLegend.appendChild(this.createFormElement("text", "Name"));
+        formLegend.appendChild(this.createFormElement("email", "Email"));
+        formLegend.appendChild(this.createFormElement("number", "Number of Tickets"))
+        formLegend.appendChild(this.createFormButtons());
     }
 }
 
