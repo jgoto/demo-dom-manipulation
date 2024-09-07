@@ -1,14 +1,16 @@
 class JsOrderForm{
     constructor(){
         this.formContainer = document.getElementById("js-form");
-        this.createForm(0)
+        this.createForm()
     }
 
     createFormElement(type, name){
         const newField = document.createElement("div");
         const fieldLabel = document.createElement("label");
         fieldLabel.innerText = `${name}`;
+        fieldLabel.htmlFor = `${name}-0`;
         const fieldInput = document.createElement("input");
+        fieldInput.id = `${name}-0`;
         fieldInput.type = type;
         newField.appendChild(fieldLabel);
         newField.appendChild(fieldInput);
@@ -20,15 +22,19 @@ class JsOrderForm{
         const addBtn= document.createElement("button");
         addBtn.innerText="Add";
         addBtn.type="button";
+        addBtn.classList.add("btn");
+        addBtn.classList.add("btn-primary");
         btnGroup.appendChild(addBtn);
         const deleteBtn = document.createElement("button");
         deleteBtn.innerText="Delete";
         deleteBtn.type="button";
+        deleteBtn.classList.add("btn");
+        deleteBtn.classList.add("btn-warning");
         btnGroup.appendChild(deleteBtn);
         return btnGroup;
     }
 
-    createForm(index){
+    createForm(){
         const formLegend = document.createElement("legend");
         formLegend.innerText = "New Form";
         this.formContainer.appendChild(formLegend);
