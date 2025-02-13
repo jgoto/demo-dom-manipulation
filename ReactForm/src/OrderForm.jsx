@@ -1,5 +1,6 @@
 import React from "react"
 import './OrderForm.css';
+import OrderBtn from "./OrderBtn";
 
 const OrderForm = () => {
     return (
@@ -9,11 +10,7 @@ const OrderForm = () => {
             Email <input />
             Number of Tickets <input type="number" />
         </form>
-        <div>
-            <button>Add</button>
-            <button>Delete</button>
-        </div>
-        
+        <OrderBtn />        
     </div>      
     )
 }
