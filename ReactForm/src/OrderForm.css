@@ -1,0 +1,7 @@
+form.order-form{
+    border: 1px solid black;
+    display: flexbox;
+    padding-bottom: 3vh;
+    width: 20vw;
+    flex-direction: column;
+}
