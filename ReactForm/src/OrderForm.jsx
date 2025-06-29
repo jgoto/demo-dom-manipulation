@@ -1,17 +1,25 @@
-import React from "react"
+import React,{useState} from "react"
 import './OrderForm.css';
 import OrderBtn from "./OrderBtn";
+import ContactForm from "./CotactForm";
 
 const OrderForm = () => {
+    const [contacts, setContacts] = useState([])
+    const handleBtnClick = (buttonId) => {
+        if(buttonId==="add"){
+            const newContact = <ContactForm />;
+            setContacts(prev => [...prev, newContact]);
+        }
+        else{
+            alert(`${buttonId} was clicked`)
+        }
+    }
+    
     return (
-    <div className="order-container">
-        <form className="order-form">
-            Name <input />
-            Email <input />
-            Number of Tickets <input type="number" />
-        </form>
-        <OrderBtn />        
-    </div>      
+        <>
+            {contacts}
+            <OrderBtn onButtonClick={handleBtnClick} />
+        </>
     )
 }
 

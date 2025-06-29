@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 
-const OrderBtn = () => {
-    return (
+const OrderBtn = ({onButtonClick}) => {
+    return (    
         <div className="order-btns">
-            <button>Add</button>
-            <button>Delete</button>
+            <button onClick={() => onButtonClick("add")} >Add</button>
+            <button onClick={() => onButtonClick("delete")}>Delete</button>
         </div>
     )
 }
