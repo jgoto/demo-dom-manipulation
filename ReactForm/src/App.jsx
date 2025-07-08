@@ -4,10 +4,11 @@ import OrderForm from './OrderForm';
 
 
 function App() {
+  const [contacts, setContacts] = useState([{}]);
 
   return (
   <div>
-    <OrderForm />
+    <OrderForm contacts={contacts} setContacts={setContacts} />
   </div>
       
   )

@@ -1,10 +1,8 @@
 import React,{useState} from "react"
-import './OrderForm.css';
 import OrderBtn from "./OrderBtn";
-import ContactForm from "./CotactForm";
+import ContactForm from "./ContactForm";
 
-const OrderForm = () => {
-    const [contacts, setContacts] = useState([])
+const OrderForm = ({contacts, setContacts}) => {
     const handleBtnClick = (buttonId) => {
         if(buttonId==="add"){
             const newContact = <ContactForm />;
@@ -17,7 +15,7 @@ const OrderForm = () => {
     
     return (
         <>
-            {contacts}
+            {contacts.map((contact, index) => (<ContactForm key={index} data={contact} />))}
             <OrderBtn onButtonClick={handleBtnClick} />
         </>
     )

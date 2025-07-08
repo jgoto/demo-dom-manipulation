@@ -1,7 +1,7 @@
-form.order-form{
+.contactForm{
     border: 1px solid black;
-    display: flexbox;
+    display: flex;
     padding-bottom: 3vh;
-    width: 20vw;
+    width: 40vw;
     flex-direction: column;
 }
